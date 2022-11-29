@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="fp_atan2_sim/fp_atan2.vo" type="VERILOG" />
+ <topLevel name="fp_atan2" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

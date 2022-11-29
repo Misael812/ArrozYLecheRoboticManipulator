@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="fp_acos_sim/fp_acos.vo" type="VERILOG" />
+ <topLevel name="fp_acos" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

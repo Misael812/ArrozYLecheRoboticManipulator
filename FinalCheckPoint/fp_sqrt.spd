@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="fp_sqrt_sim/fp_sqrt.vo" type="VERILOG" />
+ <topLevel name="fp_sqrt" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

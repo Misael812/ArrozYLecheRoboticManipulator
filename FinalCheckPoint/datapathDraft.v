@@ -24,6 +24,7 @@ module datapathDraft #(parameter WIDTH = 16, REGBITS = 4, INSTRUCTION_MEM = 16'h
 	input					 jumpEN,
 	input 					 BranchEN,
 	input                jalEN,
+	input               [3:0]selectFPOperation,			 
 	input [1:0]			 chooseResult,
 	output [WIDTH-1:0]   memOut,
 	output [WIDTH-1:0]   address,
@@ -46,7 +47,7 @@ module datapathDraft #(parameter WIDTH = 16, REGBITS = 4, INSTRUCTION_MEM = 16'h
 	wire [WIDTH-1:0] shiftDirection;
 	wire [WIDTH-1:0] newResult;
 	wire [WIDTH-1:0] result;
-
+	
 	
 	// registers for results
 	flopenr #(WIDTH, INSTRUCTION_MEM) pcregUnit(clk,reset,PCEN,aluResult2,pc); //enable based
@@ -87,5 +88,9 @@ module datapathDraft #(parameter WIDTH = 16, REGBITS = 4, INSTRUCTION_MEM = 16'h
 	shifter #(WIDTH) shifterUnit(src1, src2, shiftAmt, shifterControl, shiftOut);
 	RegisterFile #(WIDTH, REGBITS, INSTRUCTION_MEM, INTERRUPT_CONTROL, DATA_STACK, IO_MEM) regFile(clk, reset, regWrite, regDestination, regAddress2, regDataWB, regData1, regData2);
 	ALU #(WIDTH) alu_unit(src1, src2, ALUcond,aluResult1, PSRresult);	
+
+
+	// Floating Point ALU
+	floatingPoint fp(clk,reset,a,b,selectFPOperation,fpResult);
 
 endmodule 
